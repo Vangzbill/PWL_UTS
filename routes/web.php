@@ -19,6 +19,6 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::resource('/buku', BukuController::class);
+Route::resource('/buku', BukuController::class)->parameter('buku', 'id');
 
 Route::resource('/blog', BlogController::class)->parameter('blog', 'id');
