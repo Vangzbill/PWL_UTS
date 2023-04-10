@@ -12,33 +12,21 @@ class BukuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-<<<<<<< HEAD
-        // $buku = NULL;
-        // if(isset($request->query)){
-        //     $query = $request->query;
-        //     $buku = BukuModel::where('kode', 'LIKE', '%'.$query.'%')
-        //     ->orWhere('judul', 'LIKE', '%'.$query.'%')
-            
-        //     ->paginate(5);
-        // }else{
-        //     $buku = BukuModel::paginate(5);
-        // }
-        
-=======
-        $buku = NULL;
-        if(isset($request->query)){
-            $query = $request->query;
+        if(\Illuminate\Support\Facades\Request::get('query') !== null){
+            $query = \Illuminate\Support\Facades\Request::get('query');
             $buku = BukuModel::where('kode', 'LIKE', '%'.$query.'%')
-            ->orWhere('judul', 'LIKE', '%'.$query.'%')
-
-            ->paginate(5);
-        }else{
+                    ->orWhere('judul', 'LIKE', '%'.$query.'%')
+                    ->orWhere('pengarang', 'LIKE', '%'.$query.'%')
+                    ->orWhere('penerbit', 'LIKE', '%'.$query.'%')
+                    ->orWhere('tahun', 'LIKE', '%'.$query.'%')
+                    ->orWhere('jenis', 'LIKE', '%'.$query.'%')
+                    ->paginate(5);
+        } else {
             $buku = BukuModel::paginate(5);
         }
-
->>>>>>> 4f7e5d71b41d98c238e5224b03b99ba114dfb27a
+        
         return view('buku.buku')
             ->with('buku', $buku);
     }
