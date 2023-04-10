@@ -15,7 +15,7 @@ class BukuController extends Controller
     public function index()
     {
         $buku = BukuModel::all();
-        return view('buku')
+        return view('buku.buku')
             ->with('buku', $buku);
     }
 
@@ -26,7 +26,8 @@ class BukuController extends Controller
      */
     public function create()
     {
-        
+        return view('buku.create_buku')
+            ->with('url_form', url('/buku'));
     }
 
     /**
@@ -37,7 +38,18 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'kode' => 'required|string|max:10|unique:buku,kode',
+            'judul' => 'required|string|max:100',
+            'pengarang' => 'required|string|max:50',
+            'penerbit' => 'required|string|max:50',
+            'tahun' => 'required|string|max:5',
+            'jenis' => 'required|in:Edukasi,Novel,Majalah,Kamus,Komik,Ensiklopedia,Biografi,Naskah',
+        ]);
+
+        BukuModel::create($request->all());
+        return redirect('buku')
+            ->with('success', 'Data berhasil ditambahkan!');
     }
 
     /**
@@ -57,9 +69,12 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(BukuModel $bukuModel)
+    public function edit($id)
     {
-        //
+        $buku = BukuModel::find($id);
+        return view('buku.create_buku')
+            ->with('buku', $buku)
+            ->with('url_form', url('/buku/'.$id));
     }
 
     /**
@@ -69,9 +84,21 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BukuModel $bukuModel)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'kode' => 'required|string|max:10|unique:buku,kode',
+            'judul' => 'required|string|max:100',
+            'pengarang' => 'required|string|max:50',
+            'penerbit' => 'required|string|max:50',
+            'tahun' => 'required|string|max:5',
+            'jenis' => 'required|in:Edukasi,Novel,Majalah,Kamus,Komik,Ensiklopedia,Biografi,Naskah',
+        ]);
+
+        BukuModel::where('id', $id)->update($request->except('_method','_token'));
+        return redirect('buku')
+            ->with('success', 'Data Berhasil Diubah!');
+
     }
 
     /**
@@ -80,8 +107,10 @@ class BukuController extends Controller
      * @param  \App\Models\BukuModel  $bukuModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BukuModel $bukuModel)
+    public function destroy($id)
     {
-        //
+        BukuModel::where('id', $id)->delete();
+        return redirect('Buku')
+            ->with('Success', 'Data Berhasil Dihapus!');
     }
 }
