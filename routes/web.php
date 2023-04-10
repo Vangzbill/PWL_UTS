@@ -30,8 +30,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('buku/search', function() {
     $query = request('query');
-    $buku = App\Models\BukuModel::search($query);
-    return view('buku.search', compact('buku', 'query'));
+    $posts = App\Models\BukuModel::search($query);
+    return view('buku.search', compact('posts', 'query'));
 });
 
 
