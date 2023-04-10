@@ -4,7 +4,7 @@
     <h2>Data Buku</h2>
     <form method="POST" action="{{ $url_form }}">
         @csrf
-        {!!(isset($mhs))? method_field('PUT') : '' !!}
+        {!!(isset($buku))? method_field('PUT') : '' !!}
         <div class="form-group">
             <label>Kode Buku</label>
             <input class="form-control" name="kode" type="text" value="{{ isset($buku)? $buku->kode : old('kode') }}">
@@ -12,7 +12,7 @@
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        
+
 
         <div class="form-group">
             <label>Judul Buku</label>
@@ -45,7 +45,7 @@
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        
+
         <div class="form-group">
             <label>Jenis Buku</label>
             <select class="form-control" id="jenis" name="jenis" >
@@ -59,7 +59,7 @@
                 <option value="Naskah" @isset($buku) @selected($buku->jenis == 'Naskah') @endisset>Naskah</option>
             </select>
         </div>
-        
+
         @error('jenis')
             <small class="text-danger">{{ $message }}</small>
         @enderror
