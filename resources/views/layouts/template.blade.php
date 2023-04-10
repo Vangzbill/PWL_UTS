@@ -47,8 +47,15 @@
         <!-- Main content -->
         <section class="content">
 
-            <!-- Default box -->
-            @yield('content')
+            <div class="card">
+                <div class="card-header">
+        
+                <div class="card-body">
+                  @yield('content')
+                </div>
+                <!-- /.card-body -->
+                <!-- /.card-footer-->
+              </div>
 
         </section>
         <!-- /.content -->
