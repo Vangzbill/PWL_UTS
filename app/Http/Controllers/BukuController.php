@@ -14,7 +14,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $buku = BukuModel::all();
+        $buku = BukuModel::paginate(3);
         return view('buku.buku')
             ->with('buku', $buku);
     }
