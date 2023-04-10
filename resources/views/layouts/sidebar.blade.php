@@ -50,9 +50,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/blogs') }}" class="nav-link">
+                    <a href="{{ url('/blog') }}" class="nav-link">
                         <i class="nav-icon fas fa-file"></i>
-                        <p>Blogs</p>
+                        <p>Blog</p>
                     </a>
                 </li>
             </ul>
