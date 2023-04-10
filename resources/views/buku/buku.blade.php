@@ -35,12 +35,12 @@
                         <td>{{$b->tahun}}</td>
                         <td>{{$b->jenis}}</td>
                         <td>
-                            <a href="{{ url('/buku/'.$b->id.'/edit') }}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{{ url('/buku/'.$b->id.'/edit') }}" class="btn btn-sm btn-warning nav-icon fas fa-edit"></a>
 
-                            <form method="POST" action="{{ url('/buku/'.$b->id ) }}">
+                            <form method="POST" class="d-inline-block" action="{{ url('/buku/'.$b->id ) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-danger nav-icon fas fa-trash-alt"></button>
                             </form>
                         </td>
                     </tr>
