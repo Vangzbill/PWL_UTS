@@ -29,11 +29,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    // Route::get('buku/search', function() {
-    //     $query = request('query');
-    //     $posts = App\Models\BukuModel::search($query);
-    //     return view('buku.search', compact('posts', 'query'));
-    // });
 });
 
 

@@ -14,16 +14,16 @@ class BukuController extends Controller
      */
     public function index(Request $request)
     {
-        $buku = NULL;
-        if(isset($request->query)){
-            $query = $request->query;
-            $buku = BukuModel::where('kode', 'LIKE', '%'.$query.'%')
-            ->orWhere('judul', 'LIKE', '%'.$query.'%')
+        // $buku = NULL;
+        // if(isset($request->query)){
+        //     $query = $request->query;
+        //     $buku = BukuModel::where('kode', 'LIKE', '%'.$query.'%')
+        //     ->orWhere('judul', 'LIKE', '%'.$query.'%')
             
-            ->paginate(5);
-        }else{
-            $buku = BukuModel::paginate(5);
-        }
+        //     ->paginate(5);
+        // }else{
+        //     $buku = BukuModel::paginate(5);
+        // }
         
         return view('buku.buku')
             ->with('buku', $buku);

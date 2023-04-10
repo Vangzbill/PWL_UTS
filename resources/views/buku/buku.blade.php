@@ -72,6 +72,6 @@
             </tbody>
     </table>
 
-    <div class="pagination justify-content-end mt-2">  {{ $buku->links() }}</div>
+    <div class="pagination justify-content-end mt-2">  {{ $buku->withQueryString()->links() }}</div>
   
 @endsection
