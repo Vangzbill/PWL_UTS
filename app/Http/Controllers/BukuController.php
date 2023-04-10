@@ -113,4 +113,6 @@ class BukuController extends Controller
         return redirect('Buku')
             ->with('Success', 'Data Berhasil Dihapus!');
     }
+
+
 }
