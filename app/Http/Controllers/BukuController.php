@@ -87,7 +87,7 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'kode' => 'required|string|max:10|unique:buku,kode',
+            'kode' => 'required|string|max:10|unique:buku,kode'.$id,
             'judul' => 'required|string|max:100',
             'pengarang' => 'required|string|max:50',
             'penerbit' => 'required|string|max:50',
@@ -95,7 +95,7 @@ class BukuController extends Controller
             'jenis' => 'required|in:Edukasi,Novel,Majalah,Kamus,Komik,Ensiklopedia,Biografi,Naskah',
         ]);
 
-        BukuModel::where('id', $id)->update($request->except('_method','_token'));
+        $data = BukuModel::where('id', $id)->update($request->except('_token', '_method'));
         return redirect('buku')
             ->with('success', 'Data Berhasil Diubah!');
 
