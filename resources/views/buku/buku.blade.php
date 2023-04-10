@@ -11,10 +11,15 @@
         @if ($posts->count())
             <h1>Hasil Pencarian untuk "{{ $query }}"</h1>
             <ul>
-            @foreach ($posts as $post)
+            @foreach ($buku as $post)
                 <li>
                     <a href="{{ route('buku.show', $post->id) }}">
-                        {{ $post->title }}
+                        {{ $post->kode }}
+                        {{ $post->judul }}
+                        {{ $post->pengarang }}
+                        {{ $post->penerbit }}
+                        {{ $post->tahun }}
+                        {{ $post->jenis }}
                     </a>
                 </li>
             @endforeach
