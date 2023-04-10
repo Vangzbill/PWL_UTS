@@ -19,12 +19,12 @@ class BukuController extends Controller
             $query = $request->query;
             $buku = BukuModel::where('kode', 'LIKE', '%'.$query.'%')
             ->orWhere('judul', 'LIKE', '%'.$query.'%')
-            
+
             ->paginate(5);
         }else{
             $buku = BukuModel::paginate(5);
         }
-        
+
         return view('buku.buku')
             ->with('buku', $buku);
     }
