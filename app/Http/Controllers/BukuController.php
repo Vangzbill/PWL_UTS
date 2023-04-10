@@ -14,6 +14,7 @@ class BukuController extends Controller
      */
     public function index(Request $request)
     {
+<<<<<<< HEAD
         // $buku = NULL;
         // if(isset($request->query)){
         //     $query = $request->query;
@@ -25,6 +26,19 @@ class BukuController extends Controller
         //     $buku = BukuModel::paginate(5);
         // }
         
+=======
+        $buku = NULL;
+        if(isset($request->query)){
+            $query = $request->query;
+            $buku = BukuModel::where('kode', 'LIKE', '%'.$query.'%')
+            ->orWhere('judul', 'LIKE', '%'.$query.'%')
+
+            ->paginate(5);
+        }else{
+            $buku = BukuModel::paginate(5);
+        }
+
+>>>>>>> 4f7e5d71b41d98c238e5224b03b99ba114dfb27a
         return view('buku.buku')
             ->with('buku', $buku);
     }

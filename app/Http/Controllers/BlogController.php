@@ -14,7 +14,13 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = BlogModel::paginate(2);
+        if(\Illuminate\Support\Facades\Request::get('query') !== null){
+            $query = \Illuminate\Support\Facades\Request::get('query');
+            $blogs = BlogModel::where('author', 'LIKE', '%'.$query.'%')
+                ->paginate(5);
+        } else {
+            $blogs = BlogModel::paginate(5);
+        }
         return view('blog.blogs', ['blogs' => $blogs]);
     }
 
