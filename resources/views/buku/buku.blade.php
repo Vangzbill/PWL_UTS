@@ -13,6 +13,7 @@
                 <th>Penerbit</th>
                 <th>Tahun</th>
                 <th>Jenis</th>
+                <th>Option</th>
             </tr>
             </thead>
             <tbody>
