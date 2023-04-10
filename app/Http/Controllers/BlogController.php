@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = BlogModel::all();
+        $blogs = BlogModel::paginate(2);
         return view('blog.blogs', ['blogs' => $blogs]);
     }
 
@@ -40,7 +40,7 @@ class BlogController extends Controller
             'author' => 'required|string|max:50',
             'title' => 'required|string|max:50',
             'description' => 'required|string|max:255',
-            'content' => 'required|string|max:255',
+            'content' => 'required|string',
         ]);
         BlogModel::create($request->all());
         return redirect('/blog')->with('success', 'Blog Berhasil Ditambahkan!');
@@ -82,9 +82,9 @@ class BlogController extends Controller
             'author' => 'required|string|max:50',
             'title' => 'required|string|max:50',
             'description' => 'required|string|max:255',
-            'content' => 'required|string|max:255',
+            'content' => 'required|string',
         ]);
-        BlogModel::where('id', $id)->update($request->except(['_token', '_method']));
+        BlogModel::where('id', $id)->update($request->except('_token', '_method'));
         return redirect('/blog')->with('success', 'Blog Berhasil Diubah!');
     }
 
@@ -94,8 +94,9 @@ class BlogController extends Controller
      * @param \App\Models\BlogModel $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BlogModel $blog)
+    public function destroy($id )
     {
-        //
+        BlogModel::destroy($id);
+        return redirect('/blog')->with('success', 'Blog Berhasil Dihapus!');
     }
 }
