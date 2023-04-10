@@ -12,7 +12,7 @@
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        
+
 
         <div class="form-group">
             <label>Judul Buku</label>
@@ -45,7 +45,7 @@
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
-        
+
         <div class="form-group">
             <label>Jenis Buku</label>
             <select class="form-control" id="jenis" name="jenis" >
@@ -59,7 +59,7 @@
                 <option value="Naskah" @isset($buku) @selected($buku->jenis == 'Naskah') @endisset>Naskah</option>
             </select>
         </div>
-        
+
         @error('jenis')
             <small class="text-danger">{{ $message }}</small>
         @enderror

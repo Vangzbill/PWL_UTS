@@ -87,7 +87,7 @@ class BukuController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'kode' => 'required|string|max:10|unique:buku,kode'.$id,
+            'kode' => 'required|string|max:10|unique:buku,kode,'.$id,
             'judul' => 'required|string|max:100',
             'pengarang' => 'required|string|max:50',
             'penerbit' => 'required|string|max:50',
