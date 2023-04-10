@@ -14,10 +14,10 @@ class BukuModel extends Model
         'penerbit', 'tahun', 'jenis'
     ];
 
-    protected $searchable = [
-        'kode', 'judul', 'pengarang',
-        'penerbit', 'tahun', 'jenis'
-    ];
+    // protected $searchable = [
+    //     'kode', 'judul', 'pengarang',
+    //     'penerbit', 'tahun', 'jenis'
+    // ];
     
     // public function search($query)
     // {
