@@ -45,7 +45,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('/buku') }}" class="nav-link">
-                        <i class="nav-icon fas fa-ellipsis-h"></i>
+                        <i class="nav-icon fas fa-book"></i>
                         <p>Buku</p>
                     </a>
                 </li>

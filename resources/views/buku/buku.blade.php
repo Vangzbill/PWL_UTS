@@ -2,7 +2,14 @@
 
 @section('content')
     <h2>Daftar Buku</h2>
-    <a href="{{url('buku/create')}}"class="btn btn-sm btn-success my-2">Tambah Data</a>
+    <div class="navbar">
+        <a href="{{url('buku/create')}}"class="btn btn-sm btn-success my-2">Tambah Data</a>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+    
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -44,4 +51,7 @@
             @endif
             </tbody>
     </table>
+
+    <div class="pagination justify-content-end mt-2">  {{ $buku->links() }}</div>
+  
 @endsection
