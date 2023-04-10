@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::resource('/buku', BukuController::class)->parameter('buku', 'id');
 
 Route::resource('/blog', BlogController::class)->parameter('blog', 'id');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
