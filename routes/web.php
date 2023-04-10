@@ -15,23 +15,24 @@ use App\Models\BukuModel;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::resource('/buku', BukuController::class)->parameter('buku', 'id');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('/buku', BukuController::class)->parameter('buku', 'id');
 
-Route::resource('/blog', BlogController::class)->parameter('blog', 'id');
+    Route::resource('/blog', BlogController::class)->parameter('blog', 'id');
 
-Auth::routes();
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('buku/search', function() {
-    $query = request('query');
-    $posts = App\Models\BukuModel::search($query);
-    return view('buku.search', compact('posts', 'query'));
+    Route::get('buku/search', function() {
+        $query = request('query');
+        $posts = App\Models\BukuModel::search($query);
+        return view('buku.search', compact('posts', 'query'));
+    });
 });
 
 
