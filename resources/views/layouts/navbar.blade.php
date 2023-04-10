@@ -5,9 +5,6 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="{{ url('/login') }}" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
             <a href="{{ url('/logout') }}" class="nav-link">Logout</a>
         </li>
     </ul>
