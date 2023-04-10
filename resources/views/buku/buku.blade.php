@@ -4,16 +4,16 @@
     <h2>Daftar Buku</h2>
     <div class="navbar">
         <a href="{{url('buku/create')}}"class="btn btn-sm btn-success my-2">Tambah Data</a>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-        @if ($buku->count())
+        {{-- @if ($buku->count())
             <h1>Hasil Pencarian untuk "{{ $query }}"</h1>
             <ul>
             @foreach ($buku as $post)
                 <li>
-                    <a href="{{ route('buku.show', $post->id) }}">
+                    <a href="{{ route('buku', $post->id) }}">
                         {{ $post->kode }}
                         {{ $post->judul }}
                         {{ $post->pengarang }}
@@ -26,7 +26,7 @@
             </ul>
         @else
         <p>Tidak ada hasil pencarian untuk "{{ $query }}".</p>
-        @endif
+        @endif --}}
 
     </div>
     
