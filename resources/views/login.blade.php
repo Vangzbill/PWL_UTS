@@ -26,6 +26,9 @@
 
             <form action="{{ url('/login') }}" method="post">
                 @csrf
+                @error('username')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
                 <div class="input-group mb-3">
                     <input name="username" type="text" class="form-control" placeholder="Username">
                     <div class="input-group-append">
@@ -34,6 +37,9 @@
                         </div>
                     </div>
                 </div>
+                @error('password')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
                 <div class="input-group mb-3">
                     <input name="password" type="password" class="form-control" placeholder="Password">
                     <div class="input-group-append">
