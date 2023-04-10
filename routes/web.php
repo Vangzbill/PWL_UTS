@@ -21,4 +21,4 @@ Route::get('/', function () {
 
 Route::resource('/buku', BukuController::class);
 
-Route::resource('/blog', BlogController::class);
+Route::resource('/blog', BlogController::class)->parameter('blog', 'id');
