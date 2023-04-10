@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
+use App\Models\BukuModel;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,12 @@ Route::resource('/blog', BlogController::class)->parameter('blog', 'id');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('buku/search', function() {
+    $query = request('query');
+    $posts = App\Models\BukuModel::search($query);
+    return view('buku.search', compact('posts', 'query'));
+});
+
+
+

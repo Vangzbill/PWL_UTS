@@ -8,6 +8,21 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
+        @if ($posts->count())
+            <h1>Hasil Pencarian untuk "{{ $query }}"</h1>
+            <ul>
+            @foreach ($posts as $post)
+                <li>
+                    <a href="{{ route('buku.show', $post->id) }}">
+                        {{ $post->title }}
+                    </a>
+                </li>
+            @endforeach
+            </ul>
+        @else
+        <p>Tidak ada hasil pencarian untuk "{{ $query }}".</p>
+        @endif
+
     </div>
     
     <table class="table table-bordered table-striped">
