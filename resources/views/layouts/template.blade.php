@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Blank Page</title>
+    <title>UTS PWL</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -60,6 +60,10 @@
         </section>
         <!-- /.content -->
     </div>
+
+    {{-- <script>
+        alert("Selamat Datang di Website Kami");
+    </script> --}}
     <!-- /.content-wrapper -->
 
     @include('layouts.footer')
@@ -72,14 +76,15 @@
 </div>
 <!-- ./wrapper -->
 
+
 <!-- jQuery -->
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('assets/dist/js/demo.js') }}"></script>
+{{-- <!-- AdminLTE for demo purposes -->
+<script src="{{ asset('assets/dist/js/demo.js') }}"></script> --}}
 
 @stack('scripts')
 </body>
