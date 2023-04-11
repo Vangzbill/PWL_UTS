@@ -3,7 +3,7 @@
 @section('content')
     <h2>Daftar Blog</h2>
     <div class="navbar">
-        <a href="{{url('/blog')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+        <a href="{{url('/blog/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
         <form action="" method="GET" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -47,7 +47,5 @@
         @endif
         </tbody>
     </table>
-    <div class="my-2">
-        {{ $blogs->links() }}
-    </div>
+    <div class="pagination justify-content-end mt-2">  {{ $blogs->withQueryString()->links() }}</div>
 @endsection

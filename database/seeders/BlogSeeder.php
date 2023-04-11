@@ -76,6 +76,78 @@ class BlogSeeder extends Seeder
                 Batasi akses kucingmu ke area berbahaya seperti dapur atau ruang tamu yang memiliki banyak benda-benda rapuh. Pastikan area tempat tinggal kucingmu aman dan nyaman bagi kucing.
 
                 Dengan merawat kucingmu dengan baik, kamu bisa memastikan kucingmu tetap sehat, bahagia, dan hidup lebih lama.'
+            ],
+            [
+                'author' => 'John Doe',
+                'title' => '10 Tempat Wisata Menarik di Indonesia',
+                'description' => 'Ingin berlibur ke Indonesia? Simak 10 tempat wisata menarik yang harus dikunjungi!',
+                'content' => 'Indonesia memiliki banyak tempat wisata menarik yang bisa dikunjungi oleh wisatawan. Mulai dari keindahan alam yang memukau, budaya yang kaya, hingga kuliner yang lezat, semuanya bisa dinikmati di Indonesia.
+
+                Berikut adalah 10 tempat wisata menarik di Indonesia yang wajib dikunjungi:
+
+                1. Bali
+                2. Yogyakarta
+                3. Lombok
+                4. Raja Ampat
+                5. Danau Toba
+                6. Bromo Tengger Semeru
+                7. Komodo
+                8. Tanjung Puting
+                9. Pulau Derawan
+                10. Labuan Bajo',
+            ],
+            [
+                'author' => 'Jane Smith',
+                'title' => '10 Kuliner Khas Indonesia yang Harus Dicoba',
+                'description' => 'Ingin mencicipi kuliner khas Indonesia? Coba 10 hidangan lezat ini!',
+                'content' => 'Indonesia memiliki beragam kuliner yang lezat dan unik. Setiap daerah di Indonesia memiliki hidangan khasnya sendiri, sehingga wisatawan bisa mencicipi berbagai macam kuliner saat berkunjung ke Indonesia.
+
+                Berikut adalah 10 kuliner khas Indonesia yang wajib dicoba:
+
+                1. Nasi Goreng
+                2. Sate
+                3. Rendang
+                4. Gado-gado
+                5. Nasi Padang
+                6. Soto
+                7. Bakso
+                8. Martabak
+                9. Pempek
+                10. Es Doger',
+            ],
+            [
+                'author' => 'Ahmad Syahid',
+                'title' => 'Tips Hemat Liburan Murah Meriah di Jakarta',
+                'description' => 'Ingin berlibur hemat di Jakarta? Simak tips-tips berikut ini!',
+                'content' => 'Liburan ke Jakarta tidak selalu harus mahal. Anda bisa berlibur dengan cara yang lebih hemat dan tetap seru. Berikut adalah tips hemat liburan murah meriah di Jakarta:
+
+                1. Menginap di hostel atau homestay
+                2. Mengunjungi tempat wisata gratis
+                3. Memanfaatkan promo dan diskon
+                4. Memilih transportasi publik
+                5. Mencicipi kuliner khas Jakarta
+                6. Berbelanja di pasar tradisional
+                7. Berwisata kuliner di kawasan Jalan Sabang
+                8. Mengunjungi Taman Mini Indonesia Indah
+                9. Menikmati seni dan budaya di Jakarta Art Building
+                10. Berfoto di Monas dan sekitarnya',
+            ],
+            [
+                'author' => 'Ratna Sari',
+                'title' => 'Inspirasi Dekorasi Kamar Tidur Minimalis',
+                'description' => 'Ingin membuat kamar tidur minimalis yang nyaman? Simak inspirasi dekorasi berikut ini!',
+                'content' => 'Kamar tidur minimalis bisa terlihat cantik dan nyaman dengan sentuhan dekorasi yang tepat. Berikut adalah beberapa inspirasi dekorasi kamar tidur minimalis yang bisa dicoba:
+
+                1. Pilih warna netral sebagai dasar
+                2. Gunakan tekstur pada dinding atau bantal
+                3. Tambahkan tanaman hias untuk kesan segar
+                4. Letakkan cermin besar untuk kesan luas
+                5. Gunakan furnitur minimalis yang multifungsi
+                6. Tambahkan lampu yang memberikan kesan hangat
+                7. Gunakan bedding yang lembut dan nyaman
+                8. Buat ruangan berantakan dengan rapi
+                9. Tambahkan aksen atau ornamen yang unik
+                10. Jangan terlalu banyak menambahkan aksesori',
             ]
         ]);
     }

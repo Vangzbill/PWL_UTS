@@ -20,7 +20,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card border border-success mb-3 rounded" style="max-width: 540px;">
+              <div class="card border border-primary mb-3 rounded" style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
                     <img src="{{ asset('assets/img/3x4.png') }}" alt="..." class="img-fluid rounded">
