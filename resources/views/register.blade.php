@@ -25,8 +25,19 @@
         <div class="card-body register-card-body">
             <p class="login-box-msg">Register a new membership</p>
 
-            <form action="{{ url('/register') }}" method="post">
+            <form action="{{ url('/register') }}" method="post" enctype="multipart/form-data">
                 @csrf
+                @error('avatar')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" name="avatar">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
                 @error('name')
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
