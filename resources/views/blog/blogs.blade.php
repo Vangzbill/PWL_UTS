@@ -1,11 +1,14 @@
 @extends('layouts.template')
 
 @section('content')
-    <a href="{{ url('/blog/create') }}" class="btn btn-sm btn-success my-2">Tambah Data</a>
-    <form action="{{ url('/blog') }}" method="GET" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <h2>Daftar Blog</h2>
+    <div class="navbar">
+        <a href="{{url('/blog')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+        <form action="" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -24,15 +27,14 @@
                     <td>{{ $blog->author }}</td>
                     <td>{{ $blog->title }}</td>
                     <td>{{ $blog->description }}</td>
-                    <td class="">
-                        <a href="{{ url('/blog/' . $blog->id . '/edit') }}" class="btn btn-sm btn-warning">
-                            Edit
+                    <td class="col-2">
+                        <a href="{{ url('/blog/' . $blog->id . '/edit') }}" class="btn btn-sm btn-warning fas fa-edit">
                         </a>
-                        <form class="d-inline" method="POST" action="{{ url('/blog/' . $blog->id) }}">
+                        <form class="d-inline-block" method="POST" action="{{ url('/blog/' . $blog->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" href="{{ url('/blog/' . $blog->id) }}" class="btn btn-sm btn-danger">
-                                Delete
+                            <button type="submit" href="{{ url('/blog/' . $blog->id) }}"
+                                    class="btn btn-sm btn-danger fas fa-trash-alt">
                             </button>
                         </form>
                     </td>
@@ -45,5 +47,7 @@
         @endif
         </tbody>
     </table>
-    {{ $blogs->links() }}
+    <div class="my-2">
+        {{ $blogs->links() }}
+    </div>
 @endsection
