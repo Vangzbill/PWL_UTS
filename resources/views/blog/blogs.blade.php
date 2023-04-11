@@ -37,6 +37,7 @@
                                     class="btn btn-sm btn-danger fas fa-trash-alt">
                             </button>
                         </form>
+                        <a href="{{ url('/blog/' . $blog->id) }}" class="btn btn-sm btn-info fas fa-eye"></a>
                     </td>
                 </tr>
             @endforeach

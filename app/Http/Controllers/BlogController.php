@@ -17,6 +17,8 @@ class BlogController extends Controller
         if(\Illuminate\Support\Facades\Request::get('query') !== null){
             $query = \Illuminate\Support\Facades\Request::get('query');
             $blogs = BlogModel::where('author', 'LIKE', '%'.$query.'%')
+                ->orWhere('title', 'LIKE', '%'.$query.'%')
+                ->orWhere('description', 'LIKE', '%'.$query.'%')
                 ->paginate(5);
         } else {
             $blogs = BlogModel::paginate(5);
@@ -58,9 +60,10 @@ class BlogController extends Controller
      * @param \App\Models\BlogModel $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(BlogModel $blog)
+    public function show($id)
     {
-        //
+        $blog = BlogModel::find($id);
+        return view('blog.show_blog', ['blog' => $blog]);
     }
 
     /**
