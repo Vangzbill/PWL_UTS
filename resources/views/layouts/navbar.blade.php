@@ -13,7 +13,7 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{ url('/logout') }}" class="nav-link">Logout</a>
             </li>
-        @endif
+        @endauth
     </ul>
 
     <!-- Right navbar links -->
