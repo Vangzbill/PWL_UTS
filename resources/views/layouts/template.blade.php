@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     @stack('styles')
 </head>
@@ -77,7 +78,6 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="{{ asset('resource/js/alert.js') }}"></script>
 <!-- jQuery -->
 <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->

@@ -64,7 +64,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger nav-icon fas fa-trash-alt"></button>
                             </form> --}}
-                            <form action="{{ url('/buku/'.$b->id ) }}" method="POST" class="d-inline-block">
+                            <form action="{{ route('buku.destroy', $b->id) }}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btndelete btn-danger btn-sm nav-icon fas fa-trash-alt"></button>
