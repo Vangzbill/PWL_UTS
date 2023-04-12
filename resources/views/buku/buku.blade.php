@@ -29,7 +29,7 @@
         @endif --}}
 
     </div>
-    
+
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -44,7 +44,7 @@
             </tr>
             </thead>
             <tbody>
-            @if ($buku->count() > 0) 
+            @if ($buku->count() > 0)
                 @foreach ($buku as $i => $b)
                     <tr>
                         <input type="hidden" class="delete_id" value="{{ $b->id }}">
@@ -80,8 +80,6 @@
     </table>
 
     <div class="pagination justify-content-end mt-2">  {{ $buku->links() }}</div>
-  
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
         $(document).ready(function () {

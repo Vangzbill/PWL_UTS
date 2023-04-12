@@ -106,6 +106,6 @@ class BlogController extends Controller
     public function destroy($id )
     {
         BlogModel::destroy($id);
-        return redirect('/blog')->with('success', 'Blog Berhasil Dihapus!');
+        return response()->json(['message' => 'Buku Berhasil di hapus!']);
     }
 }

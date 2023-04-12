@@ -33,8 +33,8 @@
                         <form class="d-inline-block" method="POST" action="{{ url('/blog/' . $blog->id) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" href="{{ url('/blog/' . $blog->id) }}"
-                                    class="btn btn-sm btn-danger fas fa-trash-alt" onclick="return confirm('Are you sure you want to delete this book?')">
+                            <button value="{{ json_encode([$blog->id, $blog->title]) }}" type="submit"
+                                    class="delete-btn btn btn-sm btn-danger fas fa-trash-alt">
                             </button>
                         </form>
                         <a href="{{ url('/blog/' . $blog->id) }}" class="btn btn-sm btn-info fas fa-eye"></a>
@@ -48,5 +48,55 @@
         @endif
         </tbody>
     </table>
+
     <div class="pagination justify-content-end mt-2">  {{ $blogs->withQueryString()->links() }}</div>
+
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.delete-btn').click(function (e) {
+                e.preventDefault();
+
+                const deleted_id = JSON.parse($(this).val())[0];
+                const title = JSON.parse($(this).val())[1];
+
+                swal({
+                    title: "Apakah anda yakin?",
+                    text: "Setelah dihapus, Anda tidak dapat memulihkan data blog \""+ title +"\" ini lagi!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            const data = {
+                                "_token": $('input[name=_token]').val()
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'blog/' + deleted_id,
+                                data: data,
+                                success: function (response) {
+                                    swal(response.message, {
+                                        icon: "success",
+                                    })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
 @endsection

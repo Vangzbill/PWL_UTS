@@ -14,6 +14,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('assets/dist/css/adminlte.min.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     @stack('styles')
 </head>
@@ -51,7 +52,7 @@
 
             <div class="card">
                 <div class="card-header">
-        
+
                 <div class="card-body">
                   @yield('content')
                 </div>
