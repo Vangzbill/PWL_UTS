@@ -47,8 +47,8 @@
             @if ($buku->count() > 0) 
                 @foreach ($buku as $i => $b)
                     <tr>
-                        {{-- <input type="hidden" class="delete_id" value="{{ $buku->id }}">
-                        <input type="hidden" class="judul" value="{{ $buku->judul }}"> --}}
+                        <input type="hidden" class="delete_id" value="{{ $b->id }}">
+                        <input type="hidden" class="judul" value="{{ $b->judul }}">
                         <td>{{++$i}}</td>
                         <td>{{$b->kode}}</td>
                         <td>{{$b->judul}}</td>
@@ -67,7 +67,7 @@
                             <form action="{{ url('/buku/'.$b->id ) }}" method="POST" class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button class="btn btn-danger btn-sm btndelete nav-icon fas fa-trash-alt" onclick="return confirm('Are you sure you want to delete this book?')"></button>
+                                <button class="btn btndelete btn-danger btn-sm nav-icon fas fa-trash-alt"></button>
                             </form>
                         </td>
                     </tr>
