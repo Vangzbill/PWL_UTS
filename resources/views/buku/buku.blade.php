@@ -47,6 +47,8 @@
             @if ($buku->count() > 0) 
                 @foreach ($buku as $i => $b)
                     <tr>
+                        {{-- <input type="hidden" class="delete_id" value="{{ $buku->id }}">
+                        <input type="hidden" class="judul" value="{{ $buku->judul }}"> --}}
                         <td>{{++$i}}</td>
                         <td>{{$b->kode}}</td>
                         <td>{{$b->judul}}</td>
@@ -57,10 +59,15 @@
                         <td>
                             <a href="{{ url('/buku/'.$b->id.'/edit') }}" class="btn btn-sm btn-warning nav-icon fas fa-edit"></a>
 
-                            <form method="POST" class="d-inline-block" action="{{ url('/buku/'.$b->id ) }}">
+                            {{-- <form method="POST" class="d-inline-block" action="{{ url('/buku/'.$b->id ) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger nav-icon fas fa-trash-alt"></button>
+                            </form> --}}
+                            <form action="{{ url('/buku/'.$b->id ) }}" method="POST" class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm btndelete nav-icon fas fa-trash-alt" onclick="return confirm('Are you sure you want to delete this book?')"></button>
                             </form>
                         </td>
                     </tr>
@@ -72,6 +79,57 @@
             </tbody>
     </table>
 
-    <div class="pagination justify-content-end mt-2">  {{ $buku->withQueryString()->links() }}</div>
+    <div class="pagination justify-content-end mt-2">  {{ $buku->links() }}</div>
   
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $('.btndelete').click(function (e) {
+                e.preventDefault();
+
+                var deleteid = $(this).closest("tr").find('.delete_id').val();
+                var judul = $(this).closest("tr").find('.judul').val();
+
+                swal({
+                        title: "Apakah anda yakin?",
+                        text: "Setelah dihapus, Anda tidak dapat memulihkan Data Buku "+ judul +" ini lagi!",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var data = {
+                                "_token": $('input[name=_token]').val(),
+                                'id': deleteid,
+                            };
+                            $.ajax({
+                                type: "DELETE",
+                                url: 'buku/' + deleteid,
+                                data: data,
+                                success: function (response) {
+                                    swal(response.status, {
+                                            icon: "success",
+                                        })
+                                        .then((result) => {
+                                            location.reload();
+                                        });
+                                }
+                            });
+                        }
+                    });
+            });
+
+        });
+
+    </script>
 @endsection

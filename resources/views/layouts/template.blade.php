@@ -87,5 +87,8 @@
 <script src="{{ asset('assets/dist/js/demo.js') }}"></script> --}}
 
 @stack('scripts')
+
+
+
 </body>
 </html>

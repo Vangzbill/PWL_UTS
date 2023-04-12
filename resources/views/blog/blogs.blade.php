@@ -34,7 +34,7 @@
                             @csrf
                             @method('DELETE')
                             <button type="submit" href="{{ url('/blog/' . $blog->id) }}"
-                                    class="btn btn-sm btn-danger fas fa-trash-alt">
+                                    class="btn btn-sm btn-danger fas fa-trash-alt" onclick="return confirm('Are you sure you want to delete this book?')">
                             </button>
                         </form>
                         <a href="{{ url('/blog/' . $blog->id) }}" class="btn btn-sm btn-info fas fa-eye"></a>

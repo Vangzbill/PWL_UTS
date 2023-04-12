@@ -23,8 +23,10 @@ class BukuController extends Controller
                     ->orWhere('tahun', 'LIKE', '%'.$query.'%')
                     ->orWhere('jenis', 'LIKE', '%'.$query.'%')
                     ->paginate(5);
+            $current_page = $buku->currentPage();
         } else {
             $buku = BukuModel::paginate(5);
+            $current_page = $buku->currentPage();
         }
         
         return view('buku.buku')
@@ -121,9 +123,12 @@ class BukuController extends Controller
      */
     public function destroy($id)
     {
-        BukuModel::where('id', $id)->delete();
-        return redirect('buku')
-            ->with('Success', 'Data Berhasil Dihapus!');
+        $buku = BukuModel::find($id);
+        $buku->delete();
+
+        return response()->json(['status' => 'Buku Berhasil di hapus!']);
+        // BukuModel::destroy($id);
+        // return redirect('/buku')->with('success', 'Buku Berhasil Dihapus!');
     }
 
 
